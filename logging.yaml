@@ -1,0 +1,19 @@
+logger:
+  loglevel : debug
+  logfile  : logfilename.log
+
+  logrotation:
+    maxsize   : 1
+    maxbackups: 10
+    # maxage: 1
+    # localtime: true
+    # compress: true
+    # rotate_at_startup: false
+
+  logformatter:
+    timestamp_format: 2006-01-02 15:04:05.000
+    full_path_caller: false
+    # trace_caller: true
+    # caller_first: true
+    # hide_keys: true
+    # show_full_level: true

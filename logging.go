@@ -63,7 +63,11 @@ func DefaultConfig(filename ...string) *Config {
 	}
 }
 
-func New(cfg *Config) *logrus.Logger {
+type Logger struct {
+	*logrus.Logger
+}
+
+func New(cfg *Config) *Logger {
 	log := logrus.New()
 
 	level, err := logrus.ParseLevel(cfg.Level)
@@ -110,5 +114,5 @@ func New(cfg *Config) *logrus.Logger {
 	log.SetFormatter(formatter)
 	log.SetOutput(io.MultiWriter(writers...))
 
-	return log
+	return &Logger{log}
 }
